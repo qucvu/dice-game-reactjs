@@ -1,0 +1,12 @@
+.dice {
+  /* background-image: url("/public/img/bgGame.png"); */
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+}
+
+.title {
+  font-size: 4rem;
+}

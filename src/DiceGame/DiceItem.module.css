@@ -1,0 +1,17 @@
+.dice-choice {
+  background-color: #3366ff;
+  font-size: 2.5rem;
+  color: #fff;
+  border-radius: 0.5rem;
+  width: 12rem;
+  height: 12rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+.shadow {
+  box-shadow: 0 0 5px 10px rgba(71, 209, 71, 0.5);
+}
