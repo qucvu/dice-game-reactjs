@@ -14,7 +14,7 @@ class DiceResult extends Component {
       alert("Vui lòng chọn TÀI hoặc XỈU");
       return;
     }
-    this.props.onResetDiceGame();
+    this.props.onResetResult();
     this.setState({ rolling: true });
     const timeRoll = setInterval(() => {
       this.props.onRandomDice();
@@ -50,6 +50,12 @@ class DiceResult extends Component {
         >
           {this.state.rolling ? "ROLLING..." : "PLAY GAME"}
         </button>
+        <button
+          className="btn btn-danger ms-2"
+          onClick={this.props.handleResetDice}
+        >
+          Reset
+        </button>
       </div>
     );
   }
@@ -74,8 +80,11 @@ const mapDispatchToProps = (dispatch) => {
       const action = { type: "RANDOM_DICE" };
       dispatch(action);
     },
-    onResetDiceGame: () => {
-      dispatch({ type: "RESET_DICE" });
+    onResetResult: () => {
+      dispatch({ type: "RESET_DICE_RESULT" });
+    },
+    handleResetDice: () => {
+      dispatch({ type: "RESET_DICE_ALL" });
     },
   };
 };

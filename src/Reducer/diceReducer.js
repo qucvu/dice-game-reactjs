@@ -6,7 +6,7 @@ import dice5 from "../img/5.png";
 import dice6 from "../img/6.png";
 
 const initialState = {
-  dices: [dice1, dice2, dice3],
+  dices: [dice1, dice1, dice1],
   playerChoice: "",
   goals: 0,
   totalGames: 0,
@@ -56,8 +56,11 @@ const diceReducer = (state = initialState, action) => {
       return { ...state, dices, totalPoint };
     }
 
-    case "RESET_DICE": {
+    case "RESET_DICE_RESULT": {
       return { ...state, result: null };
+    }
+    case "RESET_DICE_ALL": {
+      return initialState;
     }
     default:
       return state;

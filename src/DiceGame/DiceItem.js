@@ -21,16 +21,22 @@ class DiceItem extends Component {
     });
     this.props.onChoose(choice);
   };
+
+  addClass = (...classes) => {
+    return classes.join(" ");
+  };
   render() {
-    const { dices, result, totalPoint } = this.props;
-    console.log(result);
+    const { dices, result, totalPoint, choice } = this.props;
     return (
       <div className="row text-center">
         <div className="col-sm-4">
           <div
             className={
-              this.state.active === 1
-                ? `${styles["dice-choice"]} ${styles.shadow}`
+              // this.state.active === 1
+              //   ? `${styles["dice-choice"]} ${styles.shadow}`
+              //   : `${styles["dice-choice"]}`
+              choice === "TÀI"
+                ? this.addClass(styles["dice-choice"], styles.shadow)
                 : `${styles["dice-choice"]}`
             }
             onClick={(evt) => this.handleChoice(1, evt)}
@@ -66,9 +72,12 @@ class DiceItem extends Component {
         <div className="col-sm-4">
           <div
             className={
-              this.state.active === 2
-                ? `${styles["dice-choice"]} ${styles.shadow}`
-                : `${styles["dice-choice"]}`
+              // this.state.active === 2
+              //   ? `${styles["dice-choice"]} ${styles.shadow}`
+              //   : `${styles["dice-choice"]}`
+              `${styles["dice-choice"]} ${
+                choice === "XỈU" ? `${styles.shadow}` : " "
+              }`
             }
             onClick={(evt) => this.handleChoice(2, evt)}
           >
@@ -85,6 +94,7 @@ const mapStateToProps = (state) => {
     dices: state.dice.dices,
     result: state.dice.result,
     totalPoint: state.dice.totalPoint,
+    choice: state.dice.playerChoice,
   };
 };
 
